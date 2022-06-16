@@ -1,11 +1,13 @@
 import React from "react";
+import { Switch, Route } from "react-router";
+import HomePage from "./pages/HomePage";
 
 const App = (props) => (
-  <ul>
-    {props.facts.map((fact, i) => {
-      return <li>{fact.text}</li>;
-    })}
-  </ul>
+  <div>
+    <Switch>
+      <Route path="/" render={(props) => <HomePage {...props} />} />
+    </Switch>
+  </div>
 );
 
 export default App;
