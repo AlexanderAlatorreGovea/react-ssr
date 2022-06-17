@@ -4,13 +4,17 @@ const webpackNodeExternals = require("webpack-node-externals");
 module.exports = {
   target: "node",
   entry: "./server.js",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "build"),
+    publicPath: "/build",
+  },
   module: {
-    loaders: [
-      { test: /\.js$/, loader: "babel-loader", exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: "babel-loader", exclude: /node_modules/ },
-    ],
     rules: [
       {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: "/node_modules",
         options: {
           presets: [
             "react",
@@ -25,11 +29,6 @@ module.exports = {
         },
       },
     ],
-  },
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname + "build"),
-    publicPath: "/build",
   },
   externals: [webpackNodeExternals()],
 };

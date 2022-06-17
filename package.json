@@ -7,7 +7,9 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "webpack": "node_modules/.bin/webpack",
+    "webpack:server": "webpack --config webpack.server.js --watch",
+    "webpack:start": "nodemon --watch build --exec node build/bundle.js",
+    "dev": "npm-run-all --parallel webpack:*",
     "babelIndex": "node_modules/.bin/babel index.js -d functions",
     "babelSrc": "node_modules/.bin/babel src -d functions/src",
     "firebaseServe": "firebase serve --only functions,hosting"
@@ -16,11 +18,14 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "body-parser": "^1.20.0",
     "isomorphic-fetch": "^2.2.1",
+    "nodemon": "^2.0.16",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-router": "^6.3.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -33,6 +38,7 @@
     "firebase-admin": "^5.2.1",
     "firebase-functions": "^0.6.2",
     "firebase-tools": "^3.9.2",
+    "npm-run-all": "^4.1.5",
     "webpack": "^3.5.5"
   }
 }
