@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import express from "express";
 import React from "react";
 import ReactDomServer from "react-dom/server";
+import { Helmet } from "react-helmet";
+
 import { StaticRouter } from "react-router-dom/server.js";
 import { App } from "./src/App";
 
@@ -19,15 +21,16 @@ app.get("*", (req, res) => {
     <StaticRouter location={req.url} context={context}>
       <App />
     </StaticRouter>
-  ); 
+  );
+
+  const helmet = Helmet.renderStatic();
 
   const html = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        ${helmet.meta.toString()}
+        ${helmet.title.toString()}
         <title>React SSR</title>
         <link rel="stylesheet" href="styles.css">
     </head>
