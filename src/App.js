@@ -5,9 +5,9 @@ import { HomePage } from "./pages/HomePage";
 const App = (props) => (
   <div>
     Home
-      <Routes>
-        <Route path="/" render={(props) => <HomePage {...props} />} />
-      </Routes>
+    <Routes>
+      <Route path="/" element={<HomePage {...props} />} />
+    </Routes>
   </div>
 );
 

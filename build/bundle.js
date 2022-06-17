@@ -184,9 +184,7 @@ var App = function App(props) {
     _react2.default.createElement(
       _reactRouter.Routes,
       null,
-      _react2.default.createElement(_reactRouter.Route, { path: "/", render: function render(props) {
-          return _react2.default.createElement(_HomePage.HomePage, props);
-        } })
+      _react2.default.createElement(_reactRouter.Route, { path: "/", element: _react2.default.createElement(_HomePage.HomePage, props) })
     )
   );
 };
