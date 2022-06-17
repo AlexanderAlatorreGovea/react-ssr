@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static("build"));
+app.use(express.static("build/public"));
 
 app.get("*", (req, res) => {
   const context = {};
@@ -35,11 +35,11 @@ app.get("*", (req, res) => {
         <div id="root">
         ${APP}
         </div>
-        <script type="text/javascript" src="bundle.js"></script>
+        <script type="text/javascript" src="client_bundle.js"></script>
     </body>
     </html>
   `;
-  
+
   res.send(html);
 });
 

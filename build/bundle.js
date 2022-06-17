@@ -104,7 +104,7 @@ var app = (0, _express2.default)();
 var PORT = process.env.PORT || 3000;
 
 app.use(_bodyParser2.default.json());
-app.use(_express2.default.static("build"));
+app.use(_express2.default.static("build/public"));
 
 app.get("*", function (req, res) {
   var context = {};
@@ -115,7 +115,7 @@ app.get("*", function (req, res) {
     _react2.default.createElement(_App.App, null)
   ));
 
-  var html = "\n    <!DOCTYPE html>\n    <html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <title>React SSR</title>\n        <link rel=\"stylesheet\" href=\"styles.css\">\n    </head>\n    <body>\n        <div id=\"root\">\n        " + APP + "\n        </div>\n        <script type=\"text/javascript\" src=\"bundle.js\"></script>\n    </body>\n    </html>\n  ";
+  var html = "\n    <!DOCTYPE html>\n    <html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n        <title>React SSR</title>\n        <link rel=\"stylesheet\" href=\"styles.css\">\n    </head>\n    <body>\n        <div id=\"root\">\n        " + APP + "\n        </div>\n        <script type=\"text/javascript\" src=\"client_bundle.js\"></script>\n    </body>\n    </html>\n  ";
 
   res.send(html);
 });
@@ -223,6 +223,13 @@ var HomePage = function HomePage() {
       "h1",
       null,
       "Home Page"
+    ),
+    _react2.default.createElement(
+      "button",
+      { onClick: function onClick() {
+          return console.log('js is running');
+        } },
+      "console log some term"
     )
   );
 };
