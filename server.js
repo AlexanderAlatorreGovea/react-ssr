@@ -16,7 +16,6 @@ app.use(express.static("build/public"));
 
 app.get("*", (req, res) => {
   const context = {};
-
   const APP = ReactDomServer.renderToString(
     <StaticRouter location={req.url} context={context}>
       <App />
