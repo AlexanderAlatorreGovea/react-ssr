@@ -1,10 +1,10 @@
 {
   "name": "ssr-react-firebase-hosting",
   "version": "1.0.0",
-  "description": "",
+  "description": "SSR with React",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "Alexander Govea",
   "license": "MIT",
   "scripts": {
     "webpack:client": "webpack --config webpack.client.js --watch",
@@ -45,5 +45,8 @@
     "firebase-tools": "^3.9.2",
     "npm-run-all": "^4.1.5",
     "webpack": "^3.5.5"
+  },
+  "overrides": {
+    "react-error-overlay": "6.0.9"
   }
 }
